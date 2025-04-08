@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D1D1D1"
+    android:padding="24dp"
+    android:baselineAligned="false">
+
+    <!-- SafePass (titulo, talvez mudar para uma logo do app ou ícone no futuro) -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/safe_pass"
+        android:textSize="36sp"
+        android:textColor="#212121"
+        android:fontFamily="@font/robotocondensed_bold"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- campo que mostra a senha + icone de visibilidade -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sombra_campo"
+        android:padding="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:elevation="4dp"
+        android:layout_marginBottom="24dp"
+        android:clipToPadding="false">
+
+        <EditText
+            android:id="@+id/editSenha"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="@string/senha_placeholder"
+            android:textColor="#212121"
+            android:background="@android:color/transparent"
+            android:textSize="16sp"
+            android:fontFamily="@font/robotocondensed_regular"
+            android:inputType="none"
+            android:maxLines="1"
+            android:paddingHorizontal="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btnMostrarSenha"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_visibility_off"
+            android:contentDescription="@string/mostrar_ocultar_senha"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <!-- botões da tela principal (gerar, copiar e configs) -->
+    <Button
+        android:id="@+id/btnGerar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gerar_senha"
+        android:textColor="#212121"
+        android:background="@drawable/botao_fundo"
+        android:elevation="4dp"
+        android:fontFamily="@font/robotocondensed_regular"
+        android:layout_marginBottom="16dp"/>
+    <Button
+        android:id="@+id/btnCopiar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/copiar"
+        android:textColor="#212121"
+        android:background="@drawable/botao_fundo"
+        android:elevation="4dp"
+        android:fontFamily="@font/robotocondensed_regular"
+        android:layout_marginBottom="16dp"/>
+    <Button
+        android:id="@+id/btnPersonalizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/configuracoes"
+        android:textColor="#212121"
+        android:background="@drawable/botao_fundo"
+        android:elevation="4dp"
+        android:fontFamily="@font/robotocondensed_regular"/>
+</LinearLayout>

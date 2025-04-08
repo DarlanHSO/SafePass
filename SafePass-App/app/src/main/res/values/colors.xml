@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fundoApp">#D1D1D1</color> <!-- fundo da tela inicial-->
+    <color name="corTexto">#212121</color> <!-- textos -->
+    <color name="campoSenha">#F5F5F5</color> <!-- campo da senha -->
+    <color name="corBotao">#DAE8FC</color> <!-- fundo dos botoes -->
+    <color name="corBotaoPressionado">#B0D0E8</color> <!-- botao pressionado -->
+
+</resources>

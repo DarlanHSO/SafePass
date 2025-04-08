@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SafePass</string>
+    <string name="safe_pass">SafePass</string>
+    <string name="senha_placeholder">senha_aqui</string>
+    <string name="gerar_senha">Gerar Senha</string>
+    <string name="copiar">Copiar</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="mostrar_ocultar_senha">Mostrar ou ocultar senha</string>
+
+    <string name="habilitar_numeros">Habilitar números</string>
+    <string name="habilitar_simbolos">Habilitar símbolos</string>
+    <string name="letras_minusculas">Letras minúsculas</string>
+    <string name="letras_maiusculas">Letras maiúsculas</string>
+    <string name="numero_de_caracteres">Número de caracteres</string>
+    <string name="nivel_de_complexidade">Nível de complexidade</string>
+</resources>

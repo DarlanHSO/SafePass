@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/configRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    tools:context=".JanelaConfig">
+
+    <!-- barra arrastável no topo da janela de config-->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:background="#888888"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center" />
+
+    <!-- título -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/configuracoes"
+        android:textSize="20sp"
+        android:textColor="#212121"
+        android:fontFamily="@font/robotocondensed_regular"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <!-- grid que contêm as checkboxes -->
+    <GridLayout
+        android:id="@+id/gridCheckboxes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:rowCount="2"
+        android:useDefaultMargins="true">
+
+        <CheckBox
+            android:id="@+id/checkboxNumeros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#212121"
+            android:fontFamily="@font/robotocondensed_regular"
+            android:text="@string/habilitar_numeros"
+            android:textColor="#212121" />
+
+        <CheckBox
+            android:id="@+id/checkboxMinusculas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#212121"
+            android:fontFamily="@font/robotocondensed_regular"
+            android:text="@string/letras_minusculas"
+            android:textColor="#212121" />
+
+        <CheckBox
+            android:id="@+id/checkboxSimbolos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#212121"
+            android:fontFamily="@font/robotocondensed_regular"
+            android:text="@string/habilitar_simbolos"
+            android:textColor="#212121" />
+
+        <CheckBox
+            android:id="@+id/checkboxMaiusculas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#212121"
+            android:fontFamily="@font/robotocondensed_regular"
+            android:text="@string/letras_maiusculas"
+            android:textColor="#212121" />
+    </GridLayout>
+
+    <!-- slider de n de caracteres -->
+    <TextView
+        android:id="@+id/txtValorNumCaracteres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numero_de_caracteres"
+        android:textColor="#212121"
+        android:fontFamily="@font/robotocondensed_regular"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/caixa_valor_slider"
+            android:elevation="2dp">
+
+            <TextView
+                android:id="@+id/valorCaracteres"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="12"
+                android:textColor="#212121"
+                android:fontFamily="@font/robotocondensed_regular"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <SeekBar
+            android:id="@+id/sliderCaracteres"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:progress="0"
+            android:max="20"
+            android:progressDrawable="@drawable/barra_slider"
+            android:thumbTint="#B0C4E7" />
+    </LinearLayout>
+
+    <!-- slider de nivel de complexidade -->
+    <TextView
+        android:id="@+id/txtValorNivelComplexidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nivel_de_complexidade"
+        android:textColor="#212121"
+        android:fontFamily="@font/robotocondensed_regular"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/caixa_valor_slider"
+            android:elevation="2dp">
+
+            <TextView
+                android:id="@+id/valorComplexidade"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="#212121"
+                android:fontFamily="@font/robotocondensed_regular"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <SeekBar
+            android:id="@+id/sliderComplexidade"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:progress="0"
+            android:max="4"
+            android:progressDrawable="@drawable/barra_slider"
+            android:thumbTint="#B0C4E7" />
+    </LinearLayout>
+</LinearLayout>

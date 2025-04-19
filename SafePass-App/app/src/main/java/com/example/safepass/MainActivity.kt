@@ -11,12 +11,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var editSenha: EditText
     private lateinit var btnMostrarSenha: ImageButton
     private lateinit var btnGerar: Button
-    private lateinit var btnCopiar: Button
+    private lateinit var btnCopiar: ImageButton
     private lateinit var btnPersonalizar: Button
 
     private var senhaVisivel = false
-    private val senhaPlaceholder = "senha_aqui"
-    private val senhaOculta = "••••••••"
+    private var senhaAtual: String = ""
+    private val senhaOculta = "••••••••••••••"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,19 +48,20 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        // por enquanto o botão gerar só reseta a visibilidade
         btnGerar.setOnClickListener {
-            senhaVisivel = false
-            mostrarSenha(false)
-            btnMostrarSenha.setImageResource(R.drawable.ic_visibility_off)
+            senhaAtual = LogicaSenha.gerarSenhaSimples(this)
+            senhaVisivel = true
+            editSenha.setText(senhaAtual)
+            btnMostrarSenha.setImageResource(R.drawable.ic_visibility)
         }
+
 
         btnCopiar.setOnClickListener {
             val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
-            val textoCopiado = if (senhaVisivel) senhaPlaceholder else senhaOculta
-            val clip = android.content.ClipData.newPlainText("Senha", textoCopiado)
+            val clip = android.content.ClipData.newPlainText("Senha", senhaAtual)
             clipboard.setPrimaryClip(clip)
         }
+
 
         btnPersonalizar.setOnClickListener {
             val bottomSheet = JanelaConfig()
@@ -69,6 +70,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mostrarSenha(visivel: Boolean) {
-        editSenha.setText(if (visivel) senhaPlaceholder else senhaOculta)
+        editSenha.setText(if (visivel) senhaAtual else senhaOculta)
     }
+
 }

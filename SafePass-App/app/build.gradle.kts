@@ -38,8 +38,7 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
+    implementation("androidx.core:core-ktx:1.12.0") // 👈 versão direta
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)

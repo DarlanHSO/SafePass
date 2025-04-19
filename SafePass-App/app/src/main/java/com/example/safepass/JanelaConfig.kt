@@ -4,17 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.SeekBar
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class JanelaConfig : BottomSheetDialogFragment() {
 
+    private lateinit var config: ConfigUsuario
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_config, container, false)
+        return inflater.inflate(R.layout.activity_config, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        config = ConfigUsuario.carregarConfig(requireContext())
 
         val txtNumCaracteres = view.findViewById<TextView>(R.id.valorCaracteres)
         val txtNivelComplexidade = view.findViewById<TextView>(R.id.valorComplexidade)
@@ -22,35 +31,67 @@ class JanelaConfig : BottomSheetDialogFragment() {
         val sliderNumCaracteres = view.findViewById<SeekBar>(R.id.sliderCaracteres)
         val sliderNivelComplexidade = view.findViewById<SeekBar>(R.id.sliderComplexidade)
 
-        // configurando a extensao dos valores dos sliders
-        sliderNumCaracteres.max = 24 - 4
-        sliderNivelComplexidade.max = 5 - 1
-        sliderNumCaracteres.progress = 0
-        sliderNivelComplexidade.progress = 0
-        txtNumCaracteres.text = (sliderNumCaracteres.progress + 4).toString()
-        txtNivelComplexidade.text = (sliderNivelComplexidade.progress + 1).toString()
+        val checkboxNumeros = view.findViewById<CheckBox>(R.id.checkboxNumeros)
+        val checkboxMinusculas = view.findViewById<CheckBox>(R.id.checkboxMinusculas)
+        val checkboxMaiusculas = view.findViewById<CheckBox>(R.id.checkboxMaiusculas)
+        val checkboxSimbolos = view.findViewById<CheckBox>(R.id.checkboxSimbolos)
 
+        // valores dos sliders + enviados para ConfigUsuario
+        sliderNumCaracteres.max = 20
+        sliderNivelComplexidade.max = 4
+        sliderNumCaracteres.progress = config.numCaracteres - 4
+        sliderNivelComplexidade.progress = config.nivelComplexidade - 1
+
+        txtNumCaracteres.text = config.numCaracteres.toString()
+        txtNivelComplexidade.text = config.nivelComplexidade.toString()
+
+        checkboxNumeros.isChecked = config.usarNumeros
+        checkboxMinusculas.isChecked = config.usarMinusculas
+        checkboxMaiusculas.isChecked = config.usarMaiusculas
+        checkboxSimbolos.isChecked = config.usarSimbolos
 
         sliderNumCaracteres.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val valorReal = progress + 4
-                txtNumCaracteres.text = valorReal.toString()
+                config.numCaracteres = progress + 4
+                txtNumCaracteres.text = config.numCaracteres.toString()
+                config.salvarConfig(requireContext())
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        sliderNivelComplexidade.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        sliderNivelComplexidade.setOnSeekBarChangeListener(object :
+            SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val valorReal = progress + 1
-                txtNivelComplexidade.text = valorReal.toString()
+                config.nivelComplexidade = progress + 1
+                txtNivelComplexidade.text = config.nivelComplexidade.toString()
+                config.salvarConfig(requireContext())
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        return view // checkboxes ainda não são utilizadas aqui, o valor só vai ser repassado no backend futuramente
+        // estado checkboxes -> ConfigUsuario
+        checkboxNumeros.setOnCheckedChangeListener { _, isChecked ->
+            config.usarNumeros = isChecked
+            config.salvarConfig(requireContext())
+        }
+
+        checkboxMinusculas.setOnCheckedChangeListener { _, isChecked ->
+            config.usarMinusculas = isChecked
+            config.salvarConfig(requireContext())
+        }
+
+        checkboxMaiusculas.setOnCheckedChangeListener { _, isChecked ->
+            config.usarMaiusculas = isChecked
+            config.salvarConfig(requireContext())
+        }
+
+        checkboxSimbolos.setOnCheckedChangeListener { _, isChecked ->
+            config.usarSimbolos = isChecked
+            config.salvarConfig(requireContext())
+        }
     }
 }

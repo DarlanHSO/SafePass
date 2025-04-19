@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="fundoApp">#D1D1D1</color> <!-- fundo da tela inicial-->
-    <color name="corTexto">#212121</color> <!-- textos -->
-    <color name="campoSenha">#F5F5F5</color> <!-- campo da senha -->
-    <color name="corBotao">#DAE8FC</color> <!-- fundo dos botoes -->
-    <color name="corBotaoPressionado">#B0D0E8</color> <!-- botao pressionado -->
-
+    <color name="fundoApp">#00BCF0</color>
+    <color name="fundoDegradeInicio">#00BCF0</color>
+    <color name="fundoDegradeFim">#0069B1</color>
+    <color name="corTexto">#212121</color>
+    <color name="corTextoSuave">#555555</color>
+    <color name="campoSenha">#E1EBED</color>
+    <color name="corBotao">#FFE556</color>
+    <color name="corBotaoPressionado">#B0D0E8</color>
+    <color name="fundoClaro">#F4F4F4</color>
+    <color name="fundoConfig">#F4F4F4</color> <!-- alterar futuramente -->
 </resources>

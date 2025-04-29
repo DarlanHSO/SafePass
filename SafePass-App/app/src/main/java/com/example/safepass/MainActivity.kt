@@ -5,6 +5,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,19 +53,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnGerar.setOnClickListener {
-            senhaAtual = LogicaSenha.gerarSenhaSimples(this)
-            senhaVisivel = true
-            editSenha.setText(senhaAtual)
-            btnMostrarSenha.setImageResource(R.drawable.ic_visibility)
+            CoroutineScope(Dispatchers.Main).launch {
+                editSenha.setText("GERANDO SENHA...")
+                senhaAtual = withContext(Dispatchers.IO) {
+                    LogicaSenha.gerarSenhaComApi(this@MainActivity)
+                }
+                senhaVisivel = true
+                editSenha.setText(senhaAtual)
+                btnMostrarSenha.setImageResource(R.drawable.ic_visibility)
+            }
         }
-
 
         btnCopiar.setOnClickListener {
             val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
             val clip = android.content.ClipData.newPlainText("Senha", senhaAtual)
             clipboard.setPrimaryClip(clip)
         }
-
 
         btnPersonalizar.setOnClickListener {
             val bottomSheet = JanelaConfig()

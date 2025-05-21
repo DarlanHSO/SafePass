@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // linka com os elementos com os componentes de layout
         editSenha = findViewById(R.id.editSenha)
         btnMostrarSenha = findViewById(R.id.btnMostrarSenha)
         btnGerar = findViewById(R.id.btnGerar)
@@ -41,8 +42,8 @@ class MainActivity : AppCompatActivity() {
             keyListener = null
         }
 
+        // visibilidade da senha na interface + ícone
         mostrarSenha(false)
-
         btnMostrarSenha.setOnClickListener {
             senhaVisivel = !senhaVisivel
             mostrarSenha(senhaVisivel)
@@ -52,32 +53,35 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        // Gera a senha ( ver LogicaSenha.kt )
         btnGerar.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
                 editSenha.setText("GERANDO SENHA...")
                 senhaAtual = withContext(Dispatchers.IO) {
-                    LogicaSenha.gerarSenhaComApi(this@MainActivity)
+                    LogicaSenha.gerarSenhaComConfig(this@MainActivity)
                 }
-                senhaVisivel = true
+               // senhaVisivel = true
                 editSenha.setText(senhaAtual)
                 btnMostrarSenha.setImageResource(R.drawable.ic_visibility)
             }
         }
 
+        // botão de copiar a senha
         btnCopiar.setOnClickListener {
             val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
             val clip = android.content.ClipData.newPlainText("Senha", senhaAtual)
             clipboard.setPrimaryClip(clip)
         }
 
+        // abre a janela de config
         btnPersonalizar.setOnClickListener {
             val bottomSheet = JanelaConfig()
             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
         }
     }
 
+    // alterna visibilidade da senha
     private fun mostrarSenha(visivel: Boolean) {
         editSenha.setText(if (visivel) senhaAtual else senhaOculta)
     }
-
 }

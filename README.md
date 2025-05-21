@@ -20,7 +20,7 @@ A interface [`FonteDado`][link-fonteDado] define o contrato `obterDado()`, e dif
 - [`ApiClima`][link-apiClima]  
 - [`ApiRandom`][link-apiRandom]  
 
-As estratégias são selecionadas dinamicamente em [`LogicaSenha.kt`][link-logicaSenha] de acordo com a complexidade configurada pelo usuário.
+As estratégias são selecionadas dinamicamente em [`LogicaSenha.kt`][link-logicaSenha] de acordo com o "nível de irrastreabilidade" configurado pelo usuário.
 
 ### SOLID
 

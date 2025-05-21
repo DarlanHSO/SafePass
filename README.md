@@ -15,25 +15,34 @@ Gustavo Eiji Tamezava - RA: 222226
 ### Strategy
 
 Foi utilizado o padrão Strategy na definição de múltiplas fontes de dados para geração de entropia da seed.  
-A interface `FonteDado` define o contrato `obterDado()`, e diferentes estratégias são implementadas nas classes (ao final do projeto, serão 5 ao todo):
-- `FonteLocal`
-- `ApiClima`
-- `ApiRandom`
+A interface [FonteDado] define o contrato `obterDado()`, e diferentes estratégias são implementadas nas classes (ao final do projeto, serão 5 ao todo):
+- [FonteLocal]
+- [ApiClima]
+- [ApiRandom]
 
-As estratégias são selecionadas dinamicamente em `LogicaSenha.kt` de acordo com a complexidade configurada pelo usuário.
+As estratégias são selecionadas dinamicamente em [LogicaSenha.kt] de acordo com a complexidade configurada pelo usuário.
 
 ### SOLID
 
 #### SRP – Single Responsibility Principle
 Cada uma das seguintes classes possui responsabilidade única:
-- `ConfigUsuario`: gerencia as configurações escolhidas pelo usuário.
-- `GeradorSeed`: gera uma seed criptográfica a partir das fontes.
-- [LogicaSenha.kt](https://github.com/DarlanHSO/SafePass-App/blob/master/app/src/main/java/com/example/safepass/LogicaSenha.kt)
-: controla o processo de geração da senha com base na configuração.
+- [ConfigUsuario]: gerencia as configurações escolhidas pelo usuário.
+- [GeradorSeed]: gera uma seed criptográfica a partir das fontes.
+- [LogicaSenha.kt]: controla o processo de geração da senha com base na configuração.
 
 #### OCP – Open/Closed Principle
-A classe `GeradorSeed` trabalha com a interface `FonteDado`, permitindo a adição de novas fontes de dados (novas estratégias) sem modificar a lógica existente.
+A classe [GeradorSeed] trabalha com a interface [FonteDado], permitindo a adição de novas fontes de dados (novas estratégias) sem modificar a lógica existente.
 
 #### LSP – Liskov Substitution Principle
-Todas as classes que implementam `FonteDado` (`FonteLocal`, `ApiClima`, `ApiRandom`) podem ser utilizadas de forma intercambiável sem quebrar a lógica.
+Todas as classes que implementam [FonteDado] ([FonteLocal], [ApiClima], [ApiRandom]) podem ser utilizadas de forma intercambiável sem quebrar a lógica.
+
+
+## Classes e Arquivos com Links
+- [Pasta com os códigos em kotlin](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass)
+- [ConfigUsuario](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ConfigUsuario.kt)
+- [GeradorSeed](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/GeradorSeed.kt)
+- [LogicaSenha](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/LogicaSenha.kt)
+- [FonteLocal](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/FonteLocal.kt)
+- [ApiClima](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ApiClima.kt)
+- [ApiRandom](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ApiRandom.kt)
 

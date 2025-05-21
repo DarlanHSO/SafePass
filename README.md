@@ -10,6 +10,15 @@ César Augusto de Almeida - RA: 222909
 Darlan Henrique de Souza Oliveira - RA: 211926
 Gustavo Eiji Tamezava - RA: 222226
 
+## Classes e Arquivos com Links
+- [Pasta com os códigos em kotlin](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass)
+- [ConfigUsuario](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ConfigUsuario.kt)
+- [GeradorSeed](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/GeradorSeed.kt)
+- [LogicaSenha](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/LogicaSenha.kt)
+- [FonteLocal](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/FonteLocal.kt)
+- [ApiClima](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ApiClima.kt)
+- [ApiRandom](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ApiRandom.kt)
+
 ## Padrões de Projeto Utilizados
 
 ### Strategy
@@ -37,12 +46,5 @@ A classe [GeradorSeed] trabalha com a interface [FonteDado], permitindo a adiç�
 Todas as classes que implementam [FonteDado] ([FonteLocal], [ApiClima], [ApiRandom]) podem ser utilizadas de forma intercambiável sem quebrar a lógica.
 
 
-## Classes e Arquivos com Links
-- [Pasta com os códigos em kotlin](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass)
-- [ConfigUsuario](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ConfigUsuario.kt)
-- [GeradorSeed](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/GeradorSeed.kt)
-- [LogicaSenha](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/LogicaSenha.kt)
-- [FonteLocal](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/FonteLocal.kt)
-- [ApiClima](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ApiClima.kt)
-- [ApiRandom](https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ApiRandom.kt)
+
 

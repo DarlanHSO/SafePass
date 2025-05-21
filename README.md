@@ -28,7 +28,7 @@ As estratégias são selecionadas dinamicamente em `LogicaSenha.kt` de acordo co
 Cada uma das seguintes classes possui responsabilidade única:
 - `ConfigUsuario`: gerencia as configurações escolhidas pelo usuário.
 - `GeradorSeed`: gera uma seed criptográfica a partir das fontes.
-- [LogicaSenha.kt](https://github.com/usuario/SafePass-App/blob/master/app/src/main/java/com/example/safepass/LogicaSenha.kt)
+- [LogicaSenha.kt](https://github.com/DarlanHSO/SafePass-App/blob/master/app/src/main/java/com/example/safepass/LogicaSenha.kt)
 : controla o processo de geração da senha com base na configuração.
 
 #### OCP – Open/Closed Principle

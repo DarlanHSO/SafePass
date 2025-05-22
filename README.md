@@ -3,7 +3,7 @@
 Este é o repositório do app SafePass, um gerador de senhas desenvolvido como projeto para as disciplinas de Desenvolvimento Mobile e Engenharia de Software (Centro Universitário Facens).
 
 O código em Kotlin a ser analisado está no diretório ["SafePass-App/app/src/main/java/com/example/safepass"][link-pasta].  
-Na branch *master* está presente a prova de conceito da geração de senhas desenvolvida em Python.
+Na main também estão os códigos em python referentes a prova de conceito feita em python.
 
 ## Integrantes da equipe
 - **César Augusto de Almeida** - RA: 222909  

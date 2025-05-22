@@ -38,8 +38,6 @@ Todas as classes que implementam [`FonteDado`][link-fonteDado] ([`FonteLocal`][l
 
 ---
 
-## Referências
-
 [link-pasta]: https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass  
 [link-configUsuario]: https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ConfigUsuario.kt  
 [link-geradorSeed]: https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/GeradorSeed.kt  

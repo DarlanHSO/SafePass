@@ -1,9 +1,7 @@
 import random
 import requests
 import time
-import base64
-import pickle
-import hashlib
+from generate_seed import generate_seed
 
 api_key = "cd940c5a57424e03a11193341250604"
 
@@ -26,11 +24,9 @@ def buscar_clima(api_key):
             time.sleep(1)
 
 # Executa o processo
-def main():
+def call_api():
     dados = buscar_clima(api_key)
 
-    # Codifica os dados como string base64
-    dados_64 = base64.b64encode(pickle.dumps(dados)).decode("utf-8")
+    seed = generate_seed(dados)
 
-    hash_sha256 = hashlib.sha256(dados_64.encode()).hexdigest()
-    return hash_sha256
+    return seed

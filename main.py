@@ -1,48 +1,40 @@
-import random
-import requests
-import time
-import base64
-import pickle
 import Call_weather_api
-#import call_another_api
-#import call_third_api  # Fictícia para mostrar o exemplo
-import password_generator
+import Call_random_api 
+from password_generator import generate_password
 import os
 import merge_seeds
 
 def clean_console():
-    if os.name == "nt": os.system("cls")
-    else: os.system("clear")
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
 
 # Set traceability level (controls how many hash sources to collect)
-traceability_level = 1  # Exemplo com 5 APIs chamadas
+traceability_level = 2
 
-# List of API functions (add more APIs here in the future)
-phone_data = [
-    #memory data
-]
-
+# List of API functions with names
 api_functions = [
-    Call_weather_api.main#,  # API 1
-    #call_another_api.main,  # API 2
-    #call_third_api.main     # API 3 (exemplo fictício)
-    # Add more APIs if needed
+    ("Random.org API", Call_random_api.call_api), # API 1
+    ("Weather API", Call_weather_api.call_api)    # API 2
 ]
 
 # Collect hashes dynamically based on traceability level
 hashes = []
 for i in range(traceability_level):
-    api_index = i % len(api_functions)  # Ensure we cycle through available APIs
-    hash_value = api_functions[api_index]()  # Call the selected API
-    hashes.append(hash_value)
+    api_index = i % len(api_functions)
+    api_name, api_func = api_functions[api_index]
+
+    print(f"{api_name} foi chamado.")  # Log do nome da API
+    hash_value = api_func()
+    hashes.append((api_name, hash_value))  
 
 # Merge all available hashes
 final_hash = merge_seeds.merge_seeds(*hashes)
 
-# Clear console and display results
 clean_console()
 print("Final hash:", final_hash)
 
 # Generate password using the final hash as seed
-password = password_generator.generate_password(final_hash, 100, True, True, True, True)
+password = generate_password(final_hash, 10, True, True, True, True)
 print(f"Generated password: {password}")

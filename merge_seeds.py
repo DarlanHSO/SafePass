@@ -1,15 +1,18 @@
 import hashlib
 
-def merge_seeds(*hashes) -> str | None:
+def merge_seeds(*seeds) -> str | None:
     """
-    Retorna um hash SHA-256 (64 caracteres hex) para uso como seed.
-    Se nenhum hash for fornecido, a função não retorna nada.
+    Recebe tuplas (nome_da_api, hash) e imprime o nome de cada API utilizada.
+    Concatena os hashes e retorna o SHA-256 resultante.
     """
-    if not hashes:
+    if not seeds:
         return None
-    
-    if not all(isinstance(h, str) for h in hashes):
-        raise ValueError("Todos os hashes devem ser strings.")
 
-    seeds_combined = ''.join(hashes)
-    return hashlib.sha256(seeds_combined.encode()).hexdigest()
+    try:
+        for nome_api, hash_val in seeds:
+            print(f"{nome_api} foi carregado.")
+    except (TypeError, ValueError):
+        raise ValueError("Todos os argumentos devem ser tuplas (nome_da_api, hash).")
+
+    combined = ''.join(hash_val for _, hash_val in seeds)
+    return hashlib.sha256(combined.encode()).hexdigest()

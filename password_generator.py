@@ -21,7 +21,7 @@ def generate_password(seed_64: str, size: int, upper_letters: bool, lower_letter
     if digits:
         grupos.append(string.digits)
     if special_characters:
-        grupos.append("!@#$%&*?.,^~")
+        grupos.append("!@#$%&*?.,")
 
     if not grupos:
         raise ValueError("É necessário ativar pelo menos um tipo de caractere para gerar a senha.")

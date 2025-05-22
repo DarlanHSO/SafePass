@@ -41,10 +41,11 @@ Todas as classes que implementam [`FonteDado`][link-fonteDado] ([`FonteLocal`][l
 - A prova de conceito da geração de senhas foi desenvolvida em python, seguindo os requisitos estabelecidos nas RNs e suas respectivas histórias;
 - Tradução do código em python da geração de seeds e senha para kotlin foi realizada (antes da refatoração do código, o que poderia ter ocorrido depois para ter sido um trabalho mais suave);
 - Refatoração do código de funcionamento das *activites* do app para se adequar aos padrões SOLID e Strategy;
-- Inclusão de 2 APIs para obtenção de dados para a geração de seeds, totalizando 3 níveis de irrastreabilidade (dados locais do dispositivo inclusos). Isso é um ponto de atraso em relação ao planejamento, que originalmente previa a inclusão de 4 APIs e 5 Níveis de Irrastreabilidade nesse ponto do desenvolvimento
+- Inclusão de 2 APIs para obtenção de dados para a geração de seeds, totalizando 3 níveis de irrastreabilidade (dados locais do dispositivo inclusos). Isso é um ponto de atraso em relação ao planejamento, que originalmente previa a inclusão de 4 APIs e 5 Níveis de Irrastreabilidade nesse ponto do desenvolvimento.
 
 
   ---
+
 
 [link-pasta]: https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass  
 [link-configUsuario]: https://github.com/DarlanHSO/SafePass/blob/main/SafePass-App/app/src/main/java/com/example/safepass/ConfigUsuario.kt  
